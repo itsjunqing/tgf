@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Setting Up LAMP - TGF</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/> 
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="./">Team TGF</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="./">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./about.html">About Us</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="./tutorial.html">Tutorial</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./questions.html">Questions / Research</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="col-sm-10 col-md-8 col-xl-6 mt-5 mx-auto">
+		<h2>Installing Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu server</h2>
+		<hr>
+		<div class="alert alert-danger" role="alert">
+			Note: The operations below are often executed with root privileges (aka sudo). It may requests for the user's password to verify its authenticity.
+		</div>
+		<p>There are generally various of installing OwnCloud, either through a LAMP stack or installing via snaped technology. Thus, in our tutorial, we would be running through a manual installation via LAMP stack.</p>
+
+
+		<h3 class="mt-5"># Installing Apache2 HTTP</h3>
+		<hr class="my-3">
+
+		<p>Update the apt package manager and install apache2</p>
+
+		<div class="p-3 mb-2 bg-dark text-white">
+			sudo apt update<br>
+			sudo apt install apache2
+		</div>
+
+		<p>Ensure that you allow incoming traffics, verify this through the command below</p>
+		<div class="p-3 mb-2 bg-dark text-white">
+			sudo ufw app list
+		</div>		
+		
+		<p>[picture here]</p>
+
+		<p>blalba</p>
+		<div class="p-3 mb-2 bg-dark text-white">
+			sudo ufw app info "Apache Full"
+		</div>	
+		
+		<p>Some statement here</p>
+
+		<div class="p-3 mb-2 bg-dark text-white">
+			sudo ufw allow in "Apache Full"
+		</div>
+		
+
+		<p>Some statement here</p>
+
+
+		<div class="p-3 mb-2 bg-dark text-white">
+			http://your_server_ip
+		</div>
+		
+		<h3 class="my-2">Installing MySQL as Server Database</h3>
+		<hr class="my-3">
+
+
+		<p>Some statement here</p>
+
+		<div class="p-3 mb-2 bg-dark text-white">
+			sudo apt install mysql-server
+		</div>
+
+		<p>Some statement here</p>
+
+		<div class="p-3 mb-2 bg-dark text-white">
+			sudo mysql_secure_installation
+		</div>
+
+		<p>Note that it may request for password validation, answer Y for everything else</p>
+
+		<div class="p-3 mb-2 bg-dark text-white">
+			VALIDATE PASSWORD PLUGIN can be used to test passwords
+			and improve security. It checks the strength of password
+			and allows the users to set only those passwords which are
+			secure enough. Would you like to setup VALIDATE PASSWORD plugin?
+
+			Press y|Y for Yes, any other key for No:
+		</div>
+
+		<h3 class="my-2">Installing PHP</h3>
+		<hr class="my-3">
+
+		<div class="p-3 mb-2 bg-dark text-white">
+			sudo apt install php libapache2-mod-php php-mysql
+		</div>
+		
+		<p>modify the way that Apache serves files when a directory is requested. Currently, if a user requests a directory from the server, Apache will first look for a file called index.html. We want to tell the web server to prefer PHP files over others, so make Apache look for an index.php file first.
+		</p>
+
+		<div class="p-3 mb-2 bg-dark text-white">
+			sudo apt install php libapache2-mod-php php-mysql
+		</div>
+
+		<div class="p-3 mb-2 bg-dark text-white">
+			sudo apt install php libapache2-mod-php php-mysql
+		</div>
+
+		<div class="p-3 mb-2 bg-dark text-white">
+			sudo apt install php libapache2-mod-php php-mysql
+		</div>
+
+		<div class="p-3 mb-2 bg-dark text-white">
+			sudo apt install php libapache2-mod-php php-mysql
+		</div>
+
+
+
+
+
+
+		
+	</div>
+
+	
+	<footer class="footer bg-dark mt-5" style="height: 120px; position: relative; bottom: 0; width: 100%">
+    <div class="container text-white text-center pt-5">
+      <p>TGF is built by <a href="./about.html">Team TGF</a>. The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.</p>
+    </div>
+  </footer>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
