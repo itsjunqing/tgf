@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Setting Up LAMP - TGF</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/> 
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="./">Team TGF</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="./">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./about.html">About Us</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="./tutorial.html">Tutorial</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./questions.html">Questions / Research</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="col-sm-10 col-md-8 col-xl-6 mt-5 mx-auto">
+		<h2>Installing ownCloud on A Ubuntu server</h2>
+		<hr>
+
+		<h3 class="mt-5"># Setting up ownCloud files</h3>
+		<p class="my-4">
+			Download their release key using the <code class="p-1 bg-light text-dark">curl</code> command and import them with the apt-key command below
+			<div class="p-3 my-4 bg-dark text-white">
+				<code class="text-white">curl https://download.owncloud.org/download/repositories/10.0/Ubuntu_18.04/Release.key | sudo apt-key add -</code>
+			</div>
+			
+			Create a <code class="p-1 bg-light text-dark">owncloud.list</code> in the <code class="p-1 bg-light text-dark">sources.list.d</code> directory for apt, this will allow the apt package manager to be linked to the ownCloud repository. 
+			<div class="p-3 my-4 bg-dark text-white">
+				<code class="text-white">echo 'deb http://download.owncloud.org/download/repositories/10.0/Ubuntu_18.04/ /' | sudo tee /etc/apt/sources.list.d/owncloud.list</code>
+			</div>
+
+			Update Ubuntu server so that the apt package manager could find and install ownCloud 
+			<div class="p-3 my-4 bg-dark text-white">
+				<code class="text-white">sudo apt update</code>
+			</div>			
+			
+			Install the package files required by ownCloud
+			<div class="p-3 my-4 bg-dark text-white">
+				<code class="text-white">sudo apt install php-bz2 php-curl php-gd php-imagick php-intl php-mbstring php-xml php-zip owncloud-files</code>
+			</div>
+		</p>
+
+
+		<h3 class="mt-5"># Configuring ownCloud files</h3>
+		<p class="my-4">
+			Obtain domain IP address of your host by executing the command below 
+			<div class="p-3 my-4 bg-dark">
+				<code class="text-white">cd /etc/apache2/sites-enabled/ | ls</code>
+			</div>
+
+			<p>It will show something like <code class="p-1 bg-light text-dark">000-default.conf</code> or <code class="p-1 bg-light text-dark"><span class = "text-danger">server_domain</span>-default.conf</code> where <code class="p-1 bg-light text-danger">server_domain</code> is the domain address of your host.</p>
+
+			Open the <code class="p-1 bg-light text-dark">/etc/apache2/sites-enabled/<span class="text-danger">server_domain</span>-default.conf</code> in a text editor (vim or nano)
+			<div class="p-3 my-4 bg-dark">
+				<code class="text-white">vim /etc/apache2/sites-enabled/000-default.conf</code>
+			</div>
+
+			Change the DocumentRoot to point to <code class="p-1 bg-light text-dark">var/www/owncloud</code> as below and comment the line: <code class="p-1 bg-light text-dark">ServerName www.example.com</code>
+			<div class="text-center">
+				<img src="./src/configure-cloud.png" class="rounded" alt="DocumentRoot Configuration" width="100%">
+			</div>
+
+			Run a configuration test to ensure the syntax of the edited file above and it should output as <code class="p-1 bg-light text-dark">Syntax OK</code>
+			<div class="p-3 my-4 bg-dark"><code class="text-white">sudo apache2ctl configtest</code></div>
+
+			Reload the Apache files to activate new changes
+			<div class="p-3 my-4 bg-dark"><code class="text-white">sudo systemctl reload apache2</code></div>
+		</p>
+
+
+		<h3 class="mt-5"># Configuring MySQL Database</h3>
+		<p class="my-4">
+			Login to MySQL database
+			<div class="p-3 my-4 bg-dark"><code class="text-white">sudo mysql</code></div>
+			
+			Create a dedicated database for ownCloud
+			<div class="p-3 my-4 bg-dark"><code class="text-white">CREATE DATABASE owncloud;</code></div>
+			
+			Create a separated ownCloud password to access this database (Note that this password is different than the server's password), where <code class="p-1 bg-light text-danger">owncloud_database_password</code> will be used as the ownCloud MySQL database password. This is also to ensure that all database accounts are secure and well-separated from each other.
+			<div class="p-3 my-4 bg-dark"><code class="text-white">GRANT ALL ON owncloud.* to 'owncloud'@'localhost' IDENTIFIED BY '<span class="text-danger">owncloud_database_password</span>';</code></div>
+			
+			Perform a privillege flush operation to allow MySQL to account for the changes made
+			<div class="p-3 my-4 bg-dark"><code class="text-white">FLUSH PRIVILEGES;</code></div>
+			
+			Exit the MySQL database
+			<div class="p-3 my-4 bg-dark"><code class="text-white">exit</code></div>
+		</p>
+
+
+		<h3 class="mt-5"># Configuring ownCloud</h3>
+		<p class="my-4">
+			Open a web browser and access the ownCloud web interface with the server IP address
+			<div class="p-3 my-4 bg-dark"><code class="text-white">https://server_domain_or_IP</code></div>
+			
+			Create an administrator account with a username and password and finish setup them as below 
+			<div class="text-center my-4">
+				<img src="./src/configure-admin.jpg" class="rounded" alt="Administrator Configuration" width="45%">
+			</div>
+
+			Login to your administrator account
+			<div class="text-center my-4">
+				<img src="./src/admin-login.jpg" class="rounded" alt="Administrator Login" width="45%">
+			</div>
+
+			Private cloud is successfully hosted
+			<div class="text-center my-4">
+				<img src="./src/owncloud-home.jpg" class="rounded" alt="Administrator Login" width="100%">
+			</div>
+		</p>
+	</div>
+
+	<footer class="footer bg-dark mt-5" style="height: 120px">
+    <div class="container text-white text-center pt-5">
+      <p>TGF is built by <a href="./about.html">Team TGF</a>. The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.</p>
+    </div>
+  </footer>
+
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
