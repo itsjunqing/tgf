@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Setting Up LAMP - TGF</title>
+	<title>Setup ownCloud - TGF</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/> 
+	<style type="text/css">
+		#bash {
+			border-radius: 0.25rem;
+		}
+	</style>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
@@ -41,29 +46,29 @@
 		<h2>Installing ownCloud on A Ubuntu server</h2>
 		<hr>
 
-		<div class="alert alert-danger" role="alert">
+		<div class="alert alert-primary" role="alert">
 			Note: The operations below are often executed with root privileges (aka sudo). It may requests for the user's password to verify its authenticity.
 		</div>
 
 		<h3 class="mt-5"># Setting up ownCloud files</h3>
 		<p class="my-4">
 			Download their release key using the <code class="p-1 bg-light text-dark">curl</code> command and import them with the apt-key command below
-			<div class="p-3 my-4 bg-dark text-white">
+			<div class="p-3 my-4 bg-dark" id="bash">
 				<code class="text-white">curl https://download.owncloud.org/download/repositories/10.0/Ubuntu_18.04/Release.key | sudo apt-key add -</code>
 			</div>
 			
 			Create a <code class="p-1 bg-light text-dark">owncloud.list</code> in the <code class="p-1 bg-light text-dark">sources.list.d</code> directory for apt, this will allow the apt package manager to be linked to the ownCloud repository. 
-			<div class="p-3 my-4 bg-dark text-white">
+			<div class="p-3 my-4 bg-dark" id="bash">
 				<code class="text-white">echo 'deb http://download.owncloud.org/download/repositories/10.0/Ubuntu_18.04/ /' | sudo tee /etc/apt/sources.list.d/owncloud.list</code>
 			</div>
 
 			Update Ubuntu server so that the apt package manager could find and install ownCloud 
-			<div class="p-3 my-4 bg-dark text-white">
+			<div class="p-3 my-4 bg-dark" id="bash">
 				<code class="text-white">sudo apt update</code>
 			</div>			
 			
 			Install the package files required by ownCloud
-			<div class="p-3 my-4 bg-dark text-white">
+			<div class="p-3 my-4 bg-dark" id="bash">
 				<code class="text-white">sudo apt install php-bz2 php-curl php-gd php-imagick php-intl php-mbstring php-xml php-zip owncloud-files</code>
 			</div>
 		</p>
@@ -72,14 +77,14 @@
 		<h3 class="mt-5"># Configuring ownCloud files</h3>
 		<p class="my-4">
 			Obtain domain IP address of your host by executing the command below 
-			<div class="p-3 my-4 bg-dark">
+			<div class="p-3 my-4 bg-dark" id="bash">
 				<code class="text-white">cd /etc/apache2/sites-enabled/ | ls</code>
 			</div>
 
 			<p>It will show something like <code class="p-1 bg-light text-dark">000-default.conf</code> or <code class="p-1 bg-light text-dark"><span class = "text-danger">server_domain</span>-default.conf</code> where <code class="p-1 bg-light text-danger">server_domain</code> is the domain address of your host.</p>
 
 			Open the <code class="p-1 bg-light text-dark">/etc/apache2/sites-enabled/<span class="text-danger">server_domain</span>-default.conf</code> in a text editor (vim or nano)
-			<div class="p-3 my-4 bg-dark">
+			<div class="p-3 my-4 bg-dark" id="bash">
 				<code class="text-white">vim /etc/apache2/sites-enabled/000-default.conf</code>
 			</div>
 
@@ -89,36 +94,40 @@
 			</div>
 
 			Run a configuration test to ensure the syntax of the edited file above and it should output as <code class="p-1 bg-light text-dark">Syntax OK</code>
-			<div class="p-3 my-4 bg-dark"><code class="text-white">sudo apache2ctl configtest</code></div>
+			<div class="p-3 my-4 bg-dark" id="bash"><code class="text-white">sudo apache2ctl configtest</code></div>
 
 			Reload the Apache files to activate new changes
-			<div class="p-3 my-4 bg-dark"><code class="text-white">sudo systemctl reload apache2</code></div>
+			<div class="p-3 my-4 bg-dark" id="bash"><code class="text-white">sudo systemctl reload apache2</code></div>
 		</p>
 
 
 		<h3 class="mt-5"># Configuring MySQL Database</h3>
 		<p class="my-4">
 			Login to MySQL database
-			<div class="p-3 my-4 bg-dark"><code class="text-white">sudo mysql</code></div>
+			<div class="p-3 my-4 bg-dark" id="bash"><code class="text-white">sudo mysql</code></div>
+
+			<div class="alert alert-primary" role="alert">
+			  Note: All MySQL commands need to be ended with a semi-colon ; in order to be run successfully.
+			</div>
 			
 			Create a dedicated database for ownCloud
-			<div class="p-3 my-4 bg-dark"><code class="text-white">CREATE DATABASE owncloud;</code></div>
+			<div class="p-3 my-4 bg-dark" id="bash"><code class="text-white">CREATE DATABASE owncloud;</code></div>
 			
 			Create a separated ownCloud password to access this database (Note that this password is different than the server's password), where <code class="p-1 bg-light text-danger">owncloud_database_password</code> will be used as the ownCloud MySQL database password. This is also to ensure that all database accounts are secure and well-separated from each other.
-			<div class="p-3 my-4 bg-dark"><code class="text-white">GRANT ALL ON owncloud.* to 'owncloud'@'localhost' IDENTIFIED BY '<span class="text-danger">owncloud_database_password</span>';</code></div>
+			<div class="p-3 my-4 bg-dark" id="bash"><code class="text-white">GRANT ALL ON owncloud.* to 'owncloud'@'localhost' IDENTIFIED BY '<span class="text-danger">owncloud_database_password</span>';</code></div>
 			
 			Perform a privillege flush operation to allow MySQL to account for the changes made
-			<div class="p-3 my-4 bg-dark"><code class="text-white">FLUSH PRIVILEGES;</code></div>
+			<div class="p-3 my-4 bg-dark" id="bash"><code class="text-white">FLUSH PRIVILEGES;</code></div>
 			
 			Exit the MySQL database
-			<div class="p-3 my-4 bg-dark"><code class="text-white">exit</code></div>
+			<div class="p-3 my-4 bg-dark" id="bash"><code class="text-white">exit</code></div>
 		</p>
 
 
 		<h3 class="mt-5"># Configuring ownCloud</h3>
 		<p class="my-4">
-			Open a web browser and access the ownCloud web interface with the server IP address
-			<div class="p-3 my-4 bg-dark"><code class="text-white">https://server_domain_or_IP</code></div>
+			Open a web browser and access the ownCloud web interface with the server IP address or domain name. For instance: <code class="p-1 bg-light text-dark">https://192.168.0.1</code> where <code class="p-1 bg-light text-dark">192.168.0.1</code> is the server IP address.
+			<div class="p-3 my-4 bg-dark" id="bash"><code class="text-white">https://<span class="text-danger">server_domain_or_IP</span></code></div>
 			
 			Create an administrator account with a username and password and finish setup them as below 
 			<div class="text-center my-4">
@@ -135,6 +144,8 @@
 				<img src="./src/owncloud-home.jpg" class="rounded" alt="Administrator Login" width="100%">
 			</div>
 		</p>
+
+		<a class="btn btn-outline-success btn-block" href="./tutorial.html" role="button">Proceed To Tutorial Page</a>	
 	</div>
 
 	<footer class="footer bg-dark mt-5" style="height: 120px; position: relative; bottom: 0; width: 100%">

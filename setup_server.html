@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Setting Up VPS - TGF</title>
+	<title>Setup Server - TGF</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -36,52 +36,67 @@
 		</div>
 	</nav>
 
-	<div class="col-lg-6 mt-5 mx-auto">
+	<div class="col-sm-10 col-md-8 col-xl-6 mt-5 mx-auto">
 		<h2>Setting Up Virtual Private Server</h2>
 		<hr>
-		<p>A <a href="https://en.wikipedia.org/wiki/Virtual_private_server">virtual private server</a> is a virtual machine sold by an Internet hosting service. It is like a remote computer that runs its own copy of operating system that runs based on 24/7 service. There are many host services across the globe such as <a href="https://www.digitalocean.com/">DigitalOcean</a>, <a href="https://azure.microsoft.com/en-us/services/virtual-machines/">Microsoft Azure Virtual Machines</a>, or <a href="https://www.ibm.com/cloud">IBM Cloud</a>. Here, a DigitalOcean is used as the VPS for hosting a private cloud.</p>
+		<p>A <a href="https://en.wikipedia.org/wiki/Virtual_private_server">virtual private server</a> is a virtual machine sold by an Internet hosting service. It is like a remote computer that runs its own copy of operating system that runs based on 24/7 service. There are many host services across the globe such as <a href="https://www.digitalocean.com/">DigitalOcean</a>, <a href="https://azure.microsoft.com/en-us/services/virtual-machines/">Microsoft Azure Virtual Machines</a>, or <a href="https://www.ibm.com/cloud">IBM Cloud</a>. Here, DigitalOcean is used as the VPS for hosting a private cloud for demonstration.</p>
 
 		<h3 class="mt-5"># Creating A Project in DigitalOcean</h3>
+		A <a href="https://www.digitalocean.com/docs/projects/">Project</a> is a space that allows user to manage different virtual resources. Create a project space for a virtual private cloud.
 		<div class="text-center my-4">
 			<img src="./src/vps-creation.jpg" class="rounded" alt="Creating A Project" width="70%">
 		</div>
 
 		<h3 class="mt-5"># Creating A Droplet</h3>
+		A <a href="https://www.digitalocean.com/products/droplets/">Droplet</a> is a Linux-based virtual machines that run according to a cloud-based infrastructure. Create a droplet to host a Linux server.
 		<div class="text-center my-4">
 			<img src="./src/vps-droplet.jpg" class="rounded" alt="Creating a VPS Droplet" width="100%">
 		</div>
 
 		<h3 class="mt-5"># Selecting an OS Distribution</h3>
+		This is to install a copy of an operating system onto the virtual machine. There are various <a href="https://crouchtech.io/top-linux-distributions-for-cloud-computing">Linux OS Distributions</a> that are usable for cloud computing. Here, an <a href="https://en.wikipedia.org/wiki/Ubuntu">Ubuntu</a> server is selected as part of the demonstration. 
 		<div class="text-center my-4">
 			<img src="./src/vps-distribution.jpg" class="rounded" alt="Selecting a OS Distribution" width="100%">
 		</div>
 
 		<h3 class="mt-5"># Selecting a Droplet Plan</h3>
+		<p>Selecting the droplet plan depends on your needs on private cloud. Large organizations that continuously store large amount of data have a higher tendency to go after a dedicated CPU because it is more stable, as the resources are not shared across multiple users.</p><p>On the other hand, smaller organizations would prefer a shared CPU because the needs are not huge. Therefore, choosing the droplet plan would depend on how much data will be stored on the private cloud. </p>For general purposes, it is recommended to go after the standard version. The difference between a shared CPU and a dedicated CPU can be found under the article <a href="https://www.digitalocean.com/docs/droplets/resources/choose-plan/">DigitalOcean Choosing A Plan</a>.
 		<div class="text-center my-4">
 			<img src="./src/vps-plan.jpg" class="rounded" alt="Selecting a Droplet Plan" width="100%">
 		</div>
 
 		<h3 class="mt-5"># Choosing A Datacenter Region</h3>
+		<p>A <a href="https://en.wikipedia.org/wiki/Data_center">datacenter</a> is a centralized location where computing and networking equipments are concentrated for the purpose of managing large amount of data. It can be considered as a center with huge amount of computers. Data centers are typically built throughout the world to provide a scalable and efficient service to people across the world.</p> <a href="https://virtusdatacentres.com/item/344-does-it-matter-where-my-data-centre-is-physically-located">Choosing the right datacenter</a> will effectively boost data speeds and latency transfers. It is recommended to pick a data center that is closest to your region. (Singapore is closest to us)
 		<div class="text-center my-4">
 			<img src="./src/vps-datacenter.jpg" class="rounded" alt="Choosing A Datacenter Region" width="100%">
 		</div>
 
-		<h3 class="mt-5"># Choosing Droplet Authentication Method</h3>
+		<h3 class="mt-5" id="authentication"># Choosing Droplet Authentication Method</h3>
+		<p>This is to verify the identity. <a href="https://en.wikipedia.org/wiki/Ssh-keygen">SSH or Secure Shell</a> is a network protocol, or a method of communicating between two machines remotely with a strong encryption algorithm, allowing one person to gain control of the servers via the internet.</p> SSH approach creates <a href="https://blog.runcloud.io/2018/11/28/why-authentication-using-ssh-public-key-is-better-than-using-password-and-how-do-they-work.html"> better security than passwords</a> due to the encryption approach used, but usage ultimately boils down to the user's needs. For demostration purposes, we will be using the one-time password approach.
 		<div class="text-center my-4">
 			<img src="./src/vps-authentication.jpg" class="rounded" alt="Choosing Droplet Authentication Method" width="100%">
 		</div>
 
 		<h3 class="mt-5"># Enabling A System-level Backup (Optional)</h3>
+		An optional choice of backing up the server weekly where the backup data is stored for a period of at most one month. For more information, refer to <a href="https://www.digitalocean.com/docs/images/backups/overview/">DigitalOcean Backup Overview</a>.
 		<div class="text-center my-4">
 			<img src="./src/vps-backups.jpg" class="rounded" alt="Enabling A System-level Backup (Optional)" width="100%">
 		</div>
 
 		<h3 class="mt-5"># Finalizing Droplet Creation</h3>
+		Congratulations 🎉, the virtual server is now successfully created with the IP address as your server's IP address. For more information on how these IP addresses work with servers, refer to <a href="https://computer.howstuffworks.com/web-server5.htm">How Web Servers Work</a>.
 		<div class="text-center my-4">
 			<img src="./src/vps-final.jpg" class="rounded" alt="Finalizing Droplet Creation" width="100%">
 		</div>
 		
+		<a class="btn btn-outline-success btn-block" href="./setup_lamp.html" role="button">Proceed To Setting Up LAMP</a>	
 	</div>
+
+	<footer class="footer bg-dark mt-5" style="height: 120px; position: relative; bottom: 0; width: 100%">
+		<div class="container text-white text-center pt-5">
+			<p>TGF is built by <a href="./about.html">Team TGF</a>. The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.</p>
+		</div>
+	</footer>
 
 
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

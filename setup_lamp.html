@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Setting Up LAMP - TGF</title>
+	<title>Setup LAMP - TGF</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/> 
+	<style type="text/css">
+		#bash {
+			border-radius: 0.25rem;
+		}
+	</style>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -39,116 +44,114 @@
 	<div class="col-sm-10 col-md-8 col-xl-6 mt-5 mx-auto">
 		<h2>Installing Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu server</h2>
 		<hr>
-		<div class="alert alert-danger" role="alert">
+		<div class="alert alert-primary" role="alert">
 			Note: The operations below are often executed with root privileges (aka sudo). It may requests for the user's password to verify its authenticity.
 		</div>
 		<p>There are generally various of installing OwnCloud, either through a LAMP stack or installing via snaped technology. Thus, in our tutorial, we would be running through a manual installation via LAMP stack.</p>
 
-
-		<h3 class="mt-5"># Installing Apache2 HTTP</h3>
-		<hr class="my-3">
-
-		<p>Update the apt package manager and install apache2</p>
-
-		<div class="p-3 mb-2 bg-dark text-white">
-			sudo apt update<br>
-			sudo apt install apache2
-		</div>
-
-		<p>Ensure that you allow incoming traffics, verify this through the command below</p>
-		<div class="p-3 mb-2 bg-dark text-white">
-			sudo ufw app list
-		</div>		
+		<h4 class="my-3">Prerequisite: Some basic knowledge in bash commands</h4>
 		
-		<p>[picture here]</p>
-
-		<p>blalba</p>
-		<div class="p-3 mb-2 bg-dark text-white">
-			sudo ufw app info "Apache Full"
-		</div>	
-		
-		<p>Some statement here</p>
-
-		<div class="p-3 mb-2 bg-dark text-white">
-			sudo ufw allow in "Apache Full"
-		</div>
-		
-
-		<p>Some statement here</p>
-
-
-		<div class="p-3 mb-2 bg-dark text-white">
-			http://your_server_ip
-		</div>
-		
-		<h3 class="my-2">Installing MySQL as Server Database</h3>
-		<hr class="my-3">
-
-
-		<p>Some statement here</p>
-
-		<div class="p-3 mb-2 bg-dark text-white">
-			sudo apt install mysql-server
-		</div>
-
-		<p>Some statement here</p>
-
-		<div class="p-3 mb-2 bg-dark text-white">
-			sudo mysql_secure_installation
-		</div>
-
-		<p>Note that it may request for password validation, answer Y for everything else</p>
-
-		<div class="p-3 mb-2 bg-dark text-white">
-			VALIDATE PASSWORD PLUGIN can be used to test passwords
-			and improve security. It checks the strength of password
-			and allows the users to set only those passwords which are
-			secure enough. Would you like to setup VALIDATE PASSWORD plugin?
-
-			Press y|Y for Yes, any other key for No:
-		</div>
-
-		<h3 class="my-2">Installing PHP</h3>
-		<hr class="my-3">
-
-		<div class="p-3 mb-2 bg-dark text-white">
-			sudo apt install php libapache2-mod-php php-mysql
-		</div>
-		
-		<p>modify the way that Apache serves files when a directory is requested. Currently, if a user requests a directory from the server, Apache will first look for a file called index.html. We want to tell the web server to prefer PHP files over others, so make Apache look for an index.php file first.
+		<h3 class="mt-5"># Login to Server</h3>
+		<p>
+			Login to the server by typing the command below in a bash terminal along with the password of the server where <code class="p-1 bg-light text-danger">server_ip</code> is the IP address of the <a href="./setup_server.html">virtual server created</a>. Note that if the one-time password option is selected as the <a href="./setup_server.html#authentication">authentication method</a>, the password will be emailed to you.
+			<div class="p-3 my-4 bg-dark" id="bash">
+				<code class="text-white">ssh root@<span class="text-danger">server_ip</span></code>
+			</div>
+			<div class="text-center">
+				<img src="./src/server-login.jpg" class="rounded" alt="Server Login" width="90%">
+			</div>
+			The terminal profile should look like this when logged in.
+			<div class="text-center my-4">
+				<img src="./src/server-profile.jpg" class="rounded" alt="Server Login" width="90%">
+			</div>
 		</p>
 
-		<div class="p-3 mb-2 bg-dark text-white">
-			sudo apt install php libapache2-mod-php php-mysql
-		</div>
+		<h3 class="mt-5"># Install Apache2 HTTP</h3>
+		<p class="my-4">
+			Update the apt package manager and install apache2
+			<div class="p-3 my-4 bg-dark" id="bash">
+				<code class="text-white">sudo apt update<br>sudo apt install apache2</code>
+			</div>	
+			
+			Check if Apache is fully installed
+			<div class="p-3 my-4 bg-dark" id="bash">
+				<code class="text-white">sudo ufw app list</code>
+			</div>	
 
-		<div class="p-3 mb-2 bg-dark text-white">
-			sudo apt install php libapache2-mod-php php-mysql
-		</div>
+			<div class="text-center my-4">
+				<img src="./src/apache-list.jpg" class="rounded" alt="Apache List" width="50%">
+			</div>
+			
+			Ensure the firewall allows HTTP and HTTPS traffic
+			<div class="p-3 my-4 bg-dark" id="bash">
+				<code class="text-white">sudo ufw app info "Apache Full"</code>
+			</div>	
 
-		<div class="p-3 mb-2 bg-dark text-white">
-			sudo apt install php libapache2-mod-php php-mysql
-		</div>
+			<div class="text-center my-4">
+				<img src="./src/apache-info.jpg" class="rounded" alt="Apache Info" width="85%">
+			</div>	
+		</p>
 
-		<div class="p-3 mb-2 bg-dark text-white">
-			sudo apt install php libapache2-mod-php php-mysql
-		</div>
+		<h3 class="mt-5"># Install MySQL as Database</h3>
+		<p class="my-4">
+			Install MySQL database management system as server database
+			<div class="p-3 my-4 bg-dark" id="bash">
+				<code class="text-white">sudo apt install mysql-server</code>
+			</div>	
+			
+			Run a security script to lock down access to this database
+			<div class="p-3 my-4 bg-dark" id="bash">
+				<code class="text-white">sudo mysql_secure_installation</code>
+			</div>	
 
-
-
-
-
-
+			When prompted with questions, answer with the following guide
+			<ul>
+				<li>Enter current password for root (Enter for none): <span class="text-primary">Press Enter</span></li>
+				<li>Set root password? [Y/n]: <span class="text-primary">Y</span></li>
+				<li>New password: <span class="text-primary">Enter password</span></li>
+				<li>Re-enter new password: <span class="text-primary">Repeat password</span></li>
+				<li>Remove anonymous users? [Y/n]: <span class="text-primary">Y</span></li>
+				<li>Disallow root login remotely? [Y/n]: <span class="text-primary">Y</span></li>
+				<li>Remove test database and access to it? [Y/n]: <span class="text-primary">Y</span></li>
+				<li>Reload privilege tables now? [Y/n]: <span class="text-primary">Y</span></li>
+			</ul>
+		</p>
 		
+		<h3 class="mt-5"># Install PHP</h3>
+		<p class="my-4">
+			Install PHP packages 
+			<div class="p-3 my-4 bg-dark" id="bash">
+				<code class="text-white">sudo apt install php libapache2-mod-php php-mysql</code>
+			</div>	
+			
+			Open the <code class="p-1 bg-light text-dark">dir.conf</code> file in a text editor (vim or nano) and move the <code class="p-1 bg-light text-danger">index.php</code> to point next to <code class="p-1 bg-light text-dark">DirectoryIndex</code>
+			<div class="p-3 my-4 bg-dark" id="bash">
+				<code class="text-white">sudo vim /etc/apache2/mods-enabled/dir.conf</code>
+			</div>	
+
+			<div class="text-center my-4">
+				<img src="./src/php-config.jpg" class="rounded" alt="PHP Configuration" width="92%">
+			</div>	
+
+			Restart PHP server to account for the changes and check the status  
+			<div class="p-3 my-4 bg-dark" id="bash">
+				<code class="text-white">sudo systemctl restart apache2<br>sudo systemctl status apache2</code>
+			</div>
+
+			<div class="text-center my-4">
+				<img src="./src/php-restart.jpg" class="rounded" alt="PHP Restart" width="95%">
+			</div>	
+		</p>
+
+		<a class="btn btn-outline-success btn-block" href="./setup_owncloud.html" role="button">Proceed To Setting Up ownCloud</a>
 	</div>
 
-	
 	<footer class="footer bg-dark mt-5" style="height: 120px; position: relative; bottom: 0; width: 100%">
-    <div class="container text-white text-center pt-5">
-      <p>TGF is built by <a href="./about.html">Team TGF</a>. The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.</p>
-    </div>
-  </footer>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<div class="container text-white text-center pt-5">
+			<p>TGF is built by <a href="./about.html">Team TGF</a>. The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.</p>
+		</div>
+	</footer>
+
 
 </body>
 </html>
