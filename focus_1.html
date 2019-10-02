@@ -8,6 +8,11 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/> 
+	<style type="text/css">
+		p {
+			margin: 1.5rem auto;
+		}
+	</style>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -37,24 +42,25 @@
 	</nav>
 	
 
-	<div class="container">
-		<a class="btn btn-outline-primary btn-sm mt-5" href="./questions.html" role="button">Back Page</a>
+	<div class="col-sm-10 col-md-8 col-xl-6 mt-5 mx-auto" style="margin-bottom: 5rem;">
+		<a class="btn btn-outline-primary btn-sm" href="./questions.html" role="button">Back Page</a>
 		
 
 		<h1 class="mt-4">Focus Question 1</h1>
 		<h5 class="mt-4">What trade-offs are you making when using the cloud? Have you consciously evaluated these trade-offs? What is your justification?</h5>
 
-		<div class="mt-4">
+		<div class="my-4">
 			<p>Cloud computing is the delivery of on-demand computing services -- from applications to storage and processing power -- typically over the internet and on a pay-as-you-go basis. Everything from storage, networking and processing power can be rented over on the cloud.</p>
-
+			
+			<p>There are two types of cloud system:</p>
 			<ol>
-				<li><strong>Private Cloud:</strong> A private cloud hosting solution, also known as an internal or enterprise cloud, resides on the company's intranet or hosted data center where all of the data is protected behind a firewall.</li>
-				<li><strong>Public Cloud:</strong> In a public cloud, the data is stored in the provider’s data center and the provider is responsible for the management and maintenance of the data center. Examples include Dropbox, Google Drive, iCloud, etc.</li>
+				<li><strong>Private Cloud:</strong> In a private cloud (or known as an internal or enterprise cloud), the data resides on the company's intranet or hosted data center where all of the data is protected behind a firewall.</li>
+				<li><strong>Public Cloud:</strong> In a public cloud, the data resides in the provider’s data center and the provider is responsible for the management and maintenance of the data center. For instance, services such as Dropbox, Google Drive, iCloud, etc.</li>
 			</ol>
 
 			<p>The biggest trade-off of not using public cloud is the cost associated with setting up a private cloud. Since the providers of public cloud offer a pay as you go solution, companies can save on the huge upfront cost for the IT infrastructure needed to deploy their own cloud services and do not need cloud engineers to maintain it.</p>
 
-			<p>Public cloud can add more storage as and when needed at a very minimal cost, this is possible due to economies of scale because the cloud providers specialize in this service and they have a huge user base so they already have set up the servers for expansion of storage. It is possible that storage space is under utilized in a private cloud since it is fixed at the time of setup and difficult to expand so the public cloud is scalable according to the demand of the user.</p>
+			<p>Public cloud can add more storage when needed at a very minimal cost, because the cloud providers specialize in this service and they have a huge user base which they are able to set up the servers for storage expansion. It is possible that storage space is under utilized in a private cloud since it is fixed at the time of setup and difficult to expand so the public cloud is scalable according to the demand of the user.</p>
 
 			<p>Since the public cloud is hosted over the internet it can be accessed by anyone around the globe which makes it easier for the company to make their content available to customers worldwide at a low cost. Using a private cloud would need a dedicated data centre inside the company’s premises so it would take up a lot of space.</p>
 
