@@ -4,10 +4,15 @@
 	<meta charset="UTF-8">
 	<title>Questions - TGF</title>
 	<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/> 
+	<style type="text/css">
+		p {
+			margin: 1.5rem auto;
+		}
+	</style>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -30,7 +35,6 @@
 					<li class="nav-item active">
 						<a class="nav-link" href="./questions.html">Questions / Research</a>
 					</li>
-
 				</ul>
 			</div>
 		</div>
@@ -44,16 +48,42 @@
 		<h5 class="mt-4">Is it ever worth it to manage your own private cloud services?</h5>
 
 		<div class="mt-4">
-			<p>The choice for private cloud which we have decided on is Owncloud. Owncloud is an open source private cloud provider which means that their code for the platform is visible to everyone. This makes it easy for programmers around the world to see that code and pinpoint any bugs which the engineers of Owncloud can then fix accordingly. Owncloud has a strong focus on security  and data privacy. Most of the big cloud service providers like Google drive, Dropbox, etc are hosted in the United States and there do not exist strong privacy laws which protect the data of the user.</p>
+			<p>There are two types of cloud system:</p>
+			<ol>
+				<li><strong>Private Cloud:</strong> In a private cloud (or known as an internal or enterprise cloud), the data resides on the company's intranet or hosted data center where all of the data is protected behind a firewall.</li>
+				<li><strong>Public Cloud:</strong> In a public cloud, the data resides in the provider’s data center and the provider is responsible for the management and maintenance of the data center. For instance, services such as Dropbox, Google Drive, iCloud, etc.</li>
+			</ol>
 
-			<p>In contrast to most cloud providers — who aggregate data from different customers to minimize storage needs — Owncloud is single tenant based and provides separate cloud instances with dedicated private storage for each customer. An Owncloud instance is a dedicated installation with dedicated storage and user space. It is only accessible by the user. Other Owncloud users have their own dedicated workspace so no cross-cloud access is possible.</p>
+			<p>The biggest trade-off of not using public cloud is the cost associated with setting up a private cloud. Since the providers of public cloud offer a pay as you go solution, companies can save on the huge upfront cost for the IT infrastructure needed to deploy their own cloud services and do not need cloud engineers to maintain it. </p>
+
+			<p>Public cloud can add more storage when needed at a very minimal cost, because the cloud providers specialize in this service and they have a huge user base which they are able to set up the servers for storage expansion. It is possible that storage space is under utilized in a private cloud since it is fixed at the time of setup and difficult to expand so the public cloud is scalable according to the demand of the user.</p>
+
+			<p>Since the public cloud is hosted over the internet it can be accessed by anyone around the globe which makes it easier for the company to make their content available to customers worldwide at a low cost. Using a private cloud would need a dedicated data centre inside the company’s premises so it would take up a lot of physical space. </p>
+
+			<p>Public cloud is valuable because it is constantly updated, which makes the services and capabilities of public cloud constantly up to date from a tech, accessibility and governance perspective. This also allows public cloud users to potentially integrate with platform-as-a-service capabilities such as database, machine learning and other microservices that are native to the public cloud more easily. </p>
 			
-			<p>Owncloud is hosted on a german server and Germany has the most strict data security and privacy law. In Germany data providers are bounded by the GDPR and German Bundesdatenschutzgesetz (BDSG) which governs the exposure of the personal data, which are manually processed or stored in the IT systems.</p>
+			<p>Private cloud gives you more control over your data since you are managing it yourself, the storage which you get is hosted from a third party but the infrastructure on top is deployed by the company so you manage the cloud yourself. It requires more resources and a bigger team but in this way the data is more secure when compared with the public cloud since all the managing is done by the public cloud provider and you can not set custom policies for access like you would in a private cloud.</p>
+			
+			<p>The private cloud that <a href="./tutorial.html">we have setup is ownCloud</a>. ownCloud is an open source cloud provider where the source code for the platform is visible toe everyone. This makes it easy for programmers around the world to see and pinpoint any bugs allowing the ownCloud engineers to fix them accordingly. This private cloud - ownCloud has a strong focus on security and data privacy. Most of the large corporations - cloud service providers like Google Drive, Dropbox, etc are hosted in the United States and there do not exist strong privacy laws which protect the data of the user.</p>
 
-			<p>In addition to that, it has end-end encryption which provides higher security. Own cloud uses 2048 RSA / 256 Bit AES End-to-End-Encryption which increases the security standard for file sharing and storage so it is almost impossible for hackers to break into this system. This encryption standard is higher than what is offered by the common public cloud providers. Not even third parties nor own cloud administrators can have access to the data due to this encryption. Since the data stored inside the private cloud is behind a firewall it is more secure so for the companies which have sensitive data Owncloud could be a better choice. In addition to this, own cloud has a custom password policy.</p>
-
+			<p>In contrast to most cloud providers — who aggregate data from different customers to minimize storage needs — ownCloud is single tenant based and provides separate cloud instances with dedicated private storage for each customer. An Owncloud instance is a dedicated installation with dedicated storage and user space. It is only accessible by the user. Other Owncloud users have their own dedicated workspace so no cross-cloud access is possible.</p>
+			
+			<p>Such benefits over privacy and security comes with a cost that we have seen during the <a href="./tutorial.html">installation process</a> because it may take certain people some time to setup a private cloud from scratch. On top of that, maintainence cost is an issue when hosting a private cloud too.</p>
+			
 			<p>In conclusion, the choice between public cloud and private cloud mainly depends on the needs of the organization. If it is a small company which still has time to grow then using a public cloud would be the more cost-effective and flexible option whereas for large organizations who value privacy and data integrity the hassles of private cloud seem to be justified. </p>
+		</div>
 
+		<div style="margin-top: 5rem; margin-bottom: 5rem;">
+			<h4>References:</h4>
+			<p>John White. (2018). <em>Private vs. Public Cloud: What’s the Difference? Retrieved from: <a href="https://www.expedient.com/blog/private-vs-public-cloud-whats-difference/">https://www.expedient.com/blog/private-vs-public-cloud-whats-difference/</a>
+
+			<p>Steve Ranger. (2018). <em>What is cloud computing? Everything you need to know about the cloud, explained. Retrieved from: <a href="https://www.zdnet.com/article/what-is-cloud-computing-everything-you-need-to-know-from-public-and-private-cloud-to-software-as-a/">https://www.zdnet.com/article/what-is-cloud-computing-everything-you-need-to-know-from-public-and-private-cloud-to-software-as-a/</a></em></p>
+
+			<p>Roderick Bauer. (2019). <em>What’s the Diff: Private Cloud vs Public Cloud. Retrieved from: <a href="https://www.backblaze.com/blog/private-cloud-vs-public-cloud/">https://www.backblaze.com/blog/private-cloud-vs-public-cloud/</a></em></p>
+
+			<p>Donna Goodison. (2019). <em>Public Cloud Vs. Private Cloud: Top Pros And Cons Of Each. Retrieved from: <a href="https://www.crn.com/slide-shows/cloud/public-cloud-vs-private-cloud-top-pros-and-cons-of-each/2">https://www.crn.com/slide-shows/cloud/public-cloud-vs-private-cloud-top-pros-and-cons-of-each/2</a></em></p>
+
+			<p>ownCloud. (2019). <em>ownCloud Enterprise Edition Features. Retrieved from: <a href="https://owncloud.com/features/">https://owncloud.com/features/</a></em></p>
 		</div>
 	</div>
 
