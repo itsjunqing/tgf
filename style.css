@@ -3,4 +3,13 @@
 	color: black;
 	margin-bottom: 20px;
 	border-radius: 0px;
+
+}
+
+#date {
+	text-align: center;
+}
+
+#tutorial {
+	margin-bottom: 0px;
 }

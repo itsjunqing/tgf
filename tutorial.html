@@ -4,11 +4,12 @@
 	<meta charset="UTF-8">
 	<title>Tutorial - TGF</title>
 	<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/> 
 	<link rel="stylesheet" type="text/css" href="./style.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -37,22 +38,53 @@
 		</div>
 	</nav>
 
-	<div class="jumbotron bg-primary text-white">
+	<div class="jumbotron bg-primary text-white" id="tutorial">
 		<div class="container">
 			<h1 class="mb-4">Tutorial </h1>
-			<p style="font-size: 1.7rem;">Explore our research on cloud computing over the concern of security and privacy.</p>
+			<p style="font-size: 1.7rem;">Learn how to set up your own virtual cloud.</p>
 		</div>
 	</div>
 
-	<div class="col-sm-10 col-md-8 col-xl-6 mt-5 mx-auto">
-		<a href="./setup_server.html">Setup Private Server</a><br>
-		<a href="./setup_lamp.html">Setup LAMP</a><br>
-		<a href="./setup_owncloud.html">Setup ownCloud</a>
-	</div>
+	<div class="jumbotron jumbotron-fluid bg-transparent">
+		<div class="col-sm-10 col-md-8 col-xl-6 mx-auto">
+			<h4>This site will guide you the step-by-step process for hosting a private cloud storage service. Here, we will be using <a href="https://www.digitalocean.com">DigitalOcean</a> as our VPS hoster and <a href="https://owncloud.com">ownCloud</a> as our cloud storage.</h4>
+
+			<h4 class="my-4">The steps for setting up have been divided into three parts:</h4>
+
+			<p>
+				<div class="card mt-5">
+					<h4 class="card-header">Step 1. Setting Up Virtual Private Server</h4>
+					<div class="card-body">
+						<p style="font-size: 1.3rem;">Before setting up our ownCloud service, we need to have a server that allows us to upload our files to. With this server, it gives us the accessibilty to access our files anywhere with an internet connection. Follow <a href="./setup_server.html">this guide</a> to setup a private server.</p>
+
+						<div class="row justify-content-center mt-4"><a class="btn btn-outline-dark btn-lg" href="./setup_server.html"><i class="fas fa-server"></i> Guide for setup private server</a></div>
+					</div>
+				</div>
+
+				<div class="card mt-5">
+					<h4 class="card-header">Step 2. Setting up LAMP Stack</h4>
+					<div class="card-body">
+						<p style="font-size: 1.3rem;"><a href="https://en.wikipedia.org/wiki/LAMP_(software_bundle)">LAMP</a> stack stands for Linux, Apache, MySQL and PHP. Linux is to provide the operating system for the server, Apache is acting as a web server, MySQL acting as the database and PHP for web interface. In order for ownCloud to function completely, we need to have a LAMP stack. Follow <a href="./setup_lamp.html">this guide</a> to install and configure LAMP stack.</p>
+
+						<div class="row justify-content-center mt-4"><a class="btn btn-outline-dark btn-lg" href="./setup_server.html"><i class="fas fa-layer-group"></i> Guide for install and configure LAMP stack</a></div>
+					</div>
+				</div>
+
+				<div class="card mt-5">
+					<h4 class="card-header">Step 3. Setting Up ownCloud</h4>
+					<div class="card-body">
+						<p style="font-size: 1.3rem;">ownCloud is an <a href="https://en.wikipedia.org/wiki/Open-source_software">open-source</a> file sharing server with collaboration feature that allows you to store your personal files on the cloud. This gives you the accessbility over the files online at anywhere in the world.<br><br>As ownCloud is an open-source, this gives you the control over your content and security and to avoid using third-party cloud storage services such as Dropbox or GoogleDrive. Follow <a href="./setup_owncloud.html">this guide</a> to setup ownCloud storage.</p>
+
+						<div class="row justify-content-center mt-4"><a class="btn btn-outline-dark btn-lg" href="./setup_server.html"><i class="fas fa-cloud"></i> Guide for setup ownCloud storage</a></div>
+					</div>
+				</div>
+
+
+		</div>
 
 
 
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-</body>
-</html>
+	</body>
+	</html>
