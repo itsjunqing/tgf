@@ -8,11 +8,6 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/> 
-	<!-- <style type="text/css">
-		p {
-			margin: 1.5rem auto;
-		}
-	</style> -->
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -48,89 +43,64 @@
 		<h1 class="mt-4">Ethical Implications (with Ethical Reasoning Framework)</h1>
 		<h5 class="mt-4">What are the ethical implications when using a self hosted cloud?</h5>
 
+		<p class="mt-4"><a href="https://www.brown.edu/academics/science-and-technology-studies/framework-making-ethical-decisions">Ethical Reasoning Framework</a> is utilized here to critically evaluate the ethical implications resulted from building a self-hosted cloud storage. It comprises of a cycle of five steps: 
+
+		<ol>
+			<li><strong>Problem Defintion</strong>: This section critically defines the ethical issue that occur in reference to the code of ethics </li>
+			<li><strong>Gathering Information</strong>: This section gathers all the required information that argues on the ethical issues</li>
+			<li><strong>Applying Guiding Principles</strong>: This section talks about the importance of moral virtues and how to further improve upon the problem, evaluating the basics of ethics to make a good and right decision</li>
+			<li><strong>Generating, Evaluating and Taking Action</strong>: This section talks about the possible viable solutions that could potentially solve the issue arised from hosting a private cloud</li>
+			<li><strong>Reflection</strong>: This section reflects upon the overall process of this framework</li>
+		</ol>
+		</p>
+
 		<div class="mt-4">
+			<h3 class="mt-5">Problem Defintion</h2>
+			<hr class="mt-2 mb-3">
 
-			<div class="accordion" id="accordionExample">
-				<div class="card">
-					<div class="card-header text-white" style="background-color: #4285F4;" id="headingOne">
-						<h2 class="mb-0">
-							<button class="btn btn-link text-white text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-								Problem Definition
-							</button>
-						</h2>
-					</div>
+			<p>The central problem of utilizing ownCloud as our cloud storage solution is that ownCloud is an open-source. Open source means that its source code is available online and this could create a risk for ethical problems to arise. As the source code is accessible at the developers’ fingertips, it potentially allowed a situation where the developers recognizing the bugs residing in the source code but not reporting it to the maintainers of the source code, failing to comply with ACM Code of Ethics (1.3: Be honest and trustworthy).</p>
 
-					<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-						<div class="card-body">
-							<p>The central problem of utilizing ownCloud as our cloud storage solution is that ownCloud is an open-source. Open source means that its source code is available online and this could create a risk for ethical problems to arise. As the source code is accessible at the developers’ fingertips, it potentially allowed a situation where the developers recognizing the bugs residing in the source code but not reporting it to the maintainers of the source code, failing to comply with ACM Code of Ethics (1.3: Be honest and trustworthy).</p>
+			<p>Such behavior may be deemed to be risky for consumers whose data is in being stored under an open-source platform because the developers that successfully identified the bugs may exploit it to conduct unethical activities such as breaching online users’ private data, violating (1.6 Respect privacy), resulting the data to be insecure. As the core purpose of building private cloud storage is to reinforce the security aspects of managing data, such possible exploitation contradicts the intention of a private cloud.</p>
 
-							<p>Such behavior may be deemed to be risky for consumers whose data is in being stored under an open-source platform because the developers that successfully identified the bugs may exploit it to conduct unethical activities such as breaching online users’ private data, violating (1.6 Respect privacy), resulting the data to be insecure. As the core purpose of building private cloud storage is to reinforce the security aspects of managing data, such possible exploitation contradicts the intention of a private cloud. </p>
+			<h3 class="mt-5">Gathering Information</h2>
+			<hr class="mt-2 mb-3">
 
+			<p>The issue of a breach happening due to an overlooked bug in an open-source is not uncommon. Developers generally overlook the importance of bugs in the source code and did not invest sufficient time to maintain and update them. Often organizations also fail to recognize and acknowledge that open source exploitations are vulnerable in certain ways when incorporating these platforms into their applications. Although the number of people involved in the open-source community to pinpoint the vulnerabilities is huge, if the updates are not frequent, those critical bugs are exposed to hacking, allowing hackers to gain private information from attempting to breach services like this.</p>
 
-						</div>
-					</div>
-				</div>
+			<p>This fact is proven especially by the more notable news regarding the <a href="https://www.ftc.gov/enforcement/cases-proceedings/refunds/equifax-data-breach-settlement">Equifax data breach</a>. <a href="https://en.wikipedia.org/wiki/Equifax">Equifax Inc.</a>  is one of the three largest <a href="https://en.wikipedia.org/wiki/Credit_bureau">consumer credit reporting agencies</a> and is an open-source. However, in March 2017, Equifax was hit with a huge data breach with more than hundreds of millions of personal information being stolen. The source of the issue can be led down to Equifax failing to renew an encryption certificate on their internal security tools, essentially overlooking a bug that would lead to a hacking breach. Even worse, Equifax did not publicize the breach until more than a month later, concealing the news away from consumers.</p>
 
-				<div class="card">
-					<div class="card-header text-white" style="background-color: #0F9D58;" id="headingTwo">
-						<h2 class="mb-0">
-							<button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-								Gathering Information
-							</button>
-						</h2>
-					</div>
-					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-						<div class="card-body">
-							Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-header text-white" style="background-color: #F4B400;" id="headingThree">
-						<h2 class="mb-0">
-							<button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-								Applying Guiding Principles
-							</button>
-						</h2>
-					</div>
-					<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-						<div class="card-body">
-							Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-						</div>
-					</div>
-				</div>
+			<p> On the other hand, this event may ultimately also cause stakeholders of the company to lose trust in funding or providing further investment in Equifax as they have breached certain ethical code of conducts and is no longer trustworthy in the eyes of the consumers. In short, stakeholders lost faith in the company once a scandal regarding data breach occurs and was not handled properly.</p>			
 
-				<div class="card">
-					<div class="card-header text-white" style="background-color: #DB4437;" id="headingFour">
-						<h2 class="mb-0">
-							<button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-								Generating, Evaluating and Taking Action
-							</button>
-						</h2>
-					</div>
-					<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-						<div class="card-body">
-							Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-						</div>
-					</div>
-				</div>
+			<h3 class="mt-5">Applying Guiding Principles</h2>
+			<hr class="mt-2 mb-3">
+
+			<p>These problems occur as a result of lacking moral principles. All developers whether it is working on an open-source project or for a community should realize the after-effect of exploiting the source code bugs discovered. Exposing private and confidential data throughout the world may ultimately cause more problems for the society to solve, in such damaging the trust in which the society puts on the internet platform.</p>	
+ 
+			<p>The developers should comply with some ethical principles such as the ACM Code of Ethics (1.2: Avoid harm) as to prevent from causing detrimental problems for the world, (1.3 Be honest and trustworthy) as to continuously develop the habit of report bugs on a transparent level, (1.6: Respect privacy) as to realize that data should only be used for legitimate purposes and not for harmful intentions. Developers acting in accordance with these ethics allow the users to feel secure when interacting with the internet world, creating a safer and healthy environment for everyone.</p>
 
 
-				<div class="card">
-					<div class="card-header text-white" style="background-color: #BA55D3" id="headingFive">
-						<h2 class="mb-0">
-							<button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-								Reflection
-							</button>
-						</h2>
-					</div>
-					<div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-						<div class="card-body">
-							Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-						</div>
-					</div>
-				</div>
+			<h3 class="mt-5">Generating, Evaluating and Taking Action</h2>
+			<hr class="mt-2 mb-3">
 
+			<p>One of the obvious solutions to avoid the exploitation of source code is to build an extra <a href="https://www.cisco.com/c/en/us/products/security/firewalls/what-is-a-firewall.html">firewall</a> that borders the ownCloud platform. This firewall could help in monitoring the incoming data packets and only allow incoming requests whose rules defined by the administrator. It prevents unauthorized internet users from accessing the private intranet, reducing the likelihood of data breach by hackers and strengthens the security of the service.</p>  
+ 
+			<p>The other viable approach is that the maintainers or users of ownCloud could hire developers to audit the open-source code to find bugs and patch them accordingly. This can be done by checking the dependencies by third parties used in the code and test them out before deploying the ownCloud platform, secure the data residing in the cloud.</p>
+
+			<h3 class="mt-5">Reflection</h2>
+			<hr class="mt-2 mb-3">
+
+			<p>These resolutions towards the issue of source code exploitation could alleviate the risk of a data breach and reinforcing the security aspects of cloud storage when using a private open-source solution. </p>
+
+			<div style="margin-top: 5rem; margin-bottom: 5rem;">
+				<h4>References:</h4>
+
+				<p>Limor Maayan-Wainstein. (2018). <em>5 Open Source Security Risks You Should Know About. Retrieved from: <a href="https://www.xfive.co/blog/5-open-source-security-risks/">https://www.xfive.co/blog/5-open-source-security-risks/</a></em></p>
+
+				<p>Tom Smith. (2018). <em>Common Problems With Open Source. Retrieved from: <a href="https://dzone.com/articles/common-problems-with-open-source">https://dzone.com/articles/common-problems-with-open-source</a></em></p>
+
+				<p>Josh Fruhlinger. (2019). <em>Equifax data breach FAQ: What happened, who was affected, what was the impact? Retrieved from: <a href="https://www.csoonline.com/article/3444488/equifax-data-breach-faq-what-happened-who-was-affected-what-was-the-impact.html">https://www.csoonline.com/article/3444488/equifax-data-breach-faq-what-happened-who-was-affected-what-was-the-impact.html</a></em></p>
+
+				<p>Christian Cawley. (2016). <em>5 Reasons Why You Should Use a Firewall. Retrieved from: <a href="https://www.makeuseof.com/tag/5-reasons-use-firewall/">https://www.makeuseof.com/tag/5-reasons-use-firewall/</a></em></p>
 			</div>
 		</div>	
 
